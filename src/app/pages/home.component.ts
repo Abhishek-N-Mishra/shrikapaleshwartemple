@@ -45,7 +45,7 @@ import { LanguageService } from '../services/language.service';
           <a routerLink="/about" class="text-link">{{ t.introLink }}</a>
         </div>
         <div class="image-card">
-          <img src="assets/images/aerial-photo.png" [alt]="t.introImageAlt" width="500" height="625" loading="lazy">
+          <img src="assets/images/aerial-photo.jpg" [alt]="t.introImageAlt" width="768" height="1024" loading="lazy">
         </div>
       </div>
     </section>

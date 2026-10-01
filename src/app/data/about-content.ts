@@ -5,6 +5,22 @@ export interface AboutSection {
   paragraphs: string[];
 }
 
+export interface AboutSteward {
+  role: string;
+  name: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  imagePosition: string;
+}
+
+export interface AboutStewardship {
+  heading: string;
+  subheading: string;
+  intro: string;
+  people: AboutSteward[];
+}
+
 export interface AboutCopy {
   eyebrow: string;
   title: string;
@@ -12,6 +28,7 @@ export interface AboutCopy {
   subtitle: string;
   intro: string[];
   sections: AboutSection[];
+  stewardship: AboutStewardship;
   closingTitle: string;
   closing: string[];
   mantra: string;
@@ -80,6 +97,32 @@ export const aboutCopy: Record<Lang, AboutCopy> = {
         ]
       }
     ],
+    stewardship: {
+      heading: 'मंदिर का संरक्षण एवं देखरेख',
+      subheading: 'मंदिर की परंपराओं और पवित्र परिसर की देखरेख',
+      intro:
+        'श्री कपालेश्वर महादेव मंदिर की निरंतर देखरेख में इसकी धार्मिक परंपराओं का संरक्षण, मंदिर परिसर का रख-रखाव तथा श्रद्धालुओं के लिए आवश्यक व्यवस्थाओं का सहयोग शामिल है।',
+      people: [
+        {
+          role: 'सर्वराकार',
+          name: 'श्री त्रिभुवन नारायण मिश्रा',
+          description:
+            'मंदिर के सर्वराकार श्री त्रिभुवन नारायण मिश्रा मंदिर और उसकी परंपराओं के संरक्षण एवं देखरेख से जुड़े हैं।',
+          image: 'assets/images/stewards/shri-tribhuvan-narayan-mishra.png',
+          imageAlt: 'श्री त्रिभुवन नारायण मिश्रा — पोर्ट्रेट',
+          imagePosition: '70% 22%'
+        },
+        {
+          role: 'मंदिर व्यवस्थापक',
+          name: 'श्री करुणेश नारायण मिश्रा',
+          description:
+            'श्री करुणेश नारायण मिश्रा मंदिर की दैनिक व्यवस्था और आवश्यक प्रबंधन से जुड़े हैं।',
+          image: 'assets/images/stewards/shri-karunesh-narayan-mishra.png',
+          imageAlt: 'श्री करुणेश नारायण मिश्रा — पोर्ट्रेट',
+          imagePosition: '40% 22%'
+        }
+      ]
+    },
     closingTitle: 'कपालेश्वर महादेव के दर्शन के लिए आपका स्वागत है',
     closing: [
       'इस पवित्र धाम में आइए और भगवान शिव के दर्शन के साथ प्रकृति की शांति एवं इस स्थान की आध्यात्मिक विरासत का अनुभव कीजिए।'
@@ -148,6 +191,32 @@ export const aboutCopy: Record<Lang, AboutCopy> = {
         ]
       }
     ],
+    stewardship: {
+      heading: 'Temple Stewardship',
+      subheading: "Preserving the temple's traditions and caring for its sacred premises",
+      intro:
+        "The continued care of Shri Kapaleshwar Mahadev Temple involves preserving its religious traditions, maintaining the temple premises, and supporting arrangements for devotees.",
+      people: [
+        {
+          role: 'Sarvarakar',
+          name: 'Shri Tribhuvan Narayan Mishra',
+          description:
+            "The temple's Sarvarakar, Shri Tribhuvan Narayan Mishra, is associated with the stewardship and preservation of the temple and its traditions.",
+          image: 'assets/images/stewards/shri-tribhuvan-narayan-mishra.png',
+          imageAlt: 'Portrait of Shri Tribhuvan Narayan Mishra',
+          imagePosition: '70% 22%'
+        },
+        {
+          role: 'Temple Administrator',
+          name: 'Shri Karunesh Narayan Mishra',
+          description:
+            'Shri Karunesh Narayan Mishra is associated with the day-to-day administration and arrangements of the temple.',
+          image: 'assets/images/stewards/shri-karunesh-narayan-mishra.png',
+          imageAlt: 'Portrait of Shri Karunesh Narayan Mishra',
+          imagePosition: '40% 22%'
+        }
+      ]
+    },
     closingTitle: 'You are welcome for darshan of Kapaleshwar Mahadev',
     closing: [
       'Come to this sacred abode and, with darshan of Lord Shiva, experience the peace of nature and the spiritual heritage of this place.'

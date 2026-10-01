@@ -77,7 +77,7 @@ export const festivals: Festival[] = [
 ];
 
 export const gallery: GalleryImage[] = [
-  { id: 1, title: { hi: 'मंदिर परिसर', en: 'Temple premises' }, category: { hi: 'मंदिर', en: 'Temple' }, image: 'assets/images/aerial-photo.png' },
+  { id: 1, title: { hi: 'मंदिर परिसर', en: 'Temple premises' }, category: { hi: 'मंदिर', en: 'Temple' }, image: 'assets/images/aerial-photo.jpg' },
   { id: 2, title: { hi: 'शिव आराधना', en: 'Shiva worship' }, category: { hi: 'पूजा', en: 'Worship' }, image: 'assets/images/shrine-photo.png' },
   { id: 3, title: { hi: 'सावन आयोजन', en: 'Sawan gathering' }, category: { hi: 'सावन', en: 'Sawan' }, image: 'assets/images/festival-sawan.svg' },
   { id: 4, title: { hi: 'महाशिवरात्रि', en: 'Maha Shivaratri' }, category: { hi: 'महाशिवरात्रि', en: 'Maha Shivaratri' }, image: 'assets/images/festival-mahashivratri.svg' },

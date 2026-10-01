@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 480" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff9f0"/>
+      <stop offset="100%" stop-color="#f3e6d4"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c9a227"/>
+      <stop offset="50%" stop-color="#e8c96a"/>
+      <stop offset="100%" stop-color="#c9a227"/>
+    </linearGradient>
+  </defs>
+  <rect width="360" height="480" fill="url(#bg)"/>
+  <rect x="16" y="16" width="328" height="448" rx="10" fill="none" stroke="#6b1f2a" stroke-width="2"/>
+  <rect x="24" y="24" width="312" height="432" rx="8" fill="none" stroke="#d4a84b" stroke-width="1" opacity="0.65"/>
+  <rect x="32" y="32" width="296" height="8" fill="url(#gold)" opacity="0.85" rx="2"/>
+  <path fill="#6b1f2a" opacity="0.12" d="M180 400 L120 440 H240 L180 400 Z M150 440 H210 V452 H150 Z M165 452 H195 V468 H165 Z"/>
+  <text x="180" y="248" text-anchor="middle" font-family="'Noto Serif Devanagari', serif" font-size="96" fill="#6b1f2a" opacity="0.88">P</text>
+  <circle cx="180" cy="248" r="72" fill="none" stroke="#c9a227" stroke-width="1.5" opacity="0.45"/>
+</svg>

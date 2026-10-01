@@ -25,6 +25,32 @@ import { LanguageService } from '../services/language.service';
             <p>{{ p }}</p>
           }
         }
+        <section class="about-stewardship" aria-labelledby="about-stewardship-title">
+          <h2 id="about-stewardship-title">{{ copy.stewardship.heading }}</h2>
+          <p class="about-stewardship-sub">{{ copy.stewardship.subheading }}</p>
+          <p>{{ copy.stewardship.intro }}</p>
+          <ul class="about-steward-grid">
+            @for (person of copy.stewardship.people; track person.name) {
+              <li class="about-steward-card">
+                <div class="about-steward-copy">
+                  <p class="about-steward-role">{{ person.role }}</p>
+                  <h3 class="about-steward-name">{{ person.name }}</h3>
+                  <p class="about-steward-desc">{{ person.description }}</p>
+                </div>
+                <div class="about-steward-portrait">
+                  <img
+                    [src]="person.image"
+                    [alt]="person.imageAlt"
+                    [style.object-position]="person.imagePosition"
+                    width="120"
+                    height="160"
+                    loading="lazy"
+                  >
+                </div>
+              </li>
+            }
+          </ul>
+        </section>
         <div class="about-close">
           <h2>{{ copy.closingTitle }}</h2>
           @for (p of copy.closing; track p) {
