@@ -18,8 +18,16 @@ import { LanguageService } from '../services/language.service';
     @let locale = lang.lang();
 
     <section class="hero" [attr.aria-label]="t.heroAria">
-      <img class="hero-photo hero-photo-a" src="assets/images/hero/hero-temple-front.png" [alt]="t.heroAria">
-      <img class="hero-photo hero-photo-b" src="assets/images/hero/hero-slide-shivling.png" [alt]="t.heroAria">
+      <img class="hero-photo hero-photo-a" src="assets/images/hero/hero-temple-front.jpg" [alt]="t.heroAria">
+      <img
+        class="hero-photo hero-photo-b"
+        src="assets/images/hero/hero-slide-shivling.jpg"
+        [alt]="t.heroAria"
+        loading="eager"
+        decoding="async"
+      >
+      <img class="hero-photo hero-photo-c" src="assets/images/hero/hero-slide-shivling-nandi.jpg" [alt]="t.heroAria">
+      <img class="hero-photo hero-photo-d" src="assets/images/hero/hero-slide-flower-offering.jpg" [alt]="t.heroAria">
       <div class="hero-overlay"></div>
       <div class="hero-content container">
         <div class="hero-copy">

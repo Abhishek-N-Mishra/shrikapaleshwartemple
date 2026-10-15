@@ -339,9 +339,9 @@ html[lang="en"] .nav-parent {
 /* ========== Hero ========== */
 .hero {
   position: relative;
-  min-height: 440px;
+  min-height: 470px;
   height: calc(100dvh - var(--header-row) - var(--ticker-h));
-  max-height: 660px;
+  max-height: 720px;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -359,26 +359,52 @@ html[lang="en"] .nav-parent {
 }
 
 .hero-photo-a {
-  object-position: center 52%;
-  animation: hero-cycle-a 10s ease-in-out infinite;
+  object-position: center 42%;
+  animation: hero-cycle-a 20s ease-in-out infinite;
 }
 
 .hero-photo-b {
   object-fit: cover;
-  object-position: center 18%;
-  animation: hero-cycle-b 10s ease-in-out infinite;
+  /* Nandi is in the upper part of the frame; anchor top on wide heroes */
+  object-position: 48% 0%;
+  animation: hero-cycle-b 20s ease-in-out infinite;
+}
+
+.hero-photo-c {
+  object-fit: cover;
+  /* Show full silver platform at bottom of frame */
+  object-position: 50% 20%;
+  animation: hero-cycle-c 20s ease-in-out infinite;
+}
+
+.hero-photo-d {
+  object-fit: cover;
+  object-position: center center;
+  animation: hero-cycle-d 20s ease-in-out infinite;
 }
 
 @keyframes hero-cycle-a {
-  0%, 40% { opacity: 1; }
-  50%, 90% { opacity: 0; }
-  100% { opacity: 1; }
+  0%, 20% { opacity: 1; }
+  25%, 95% { opacity: 0; }
+  97%, 100% { opacity: 1; }
 }
 
 @keyframes hero-cycle-b {
-  0%, 40% { opacity: 0; }
-  50%, 90% { opacity: 1; }
-  100% { opacity: 0; }
+  0%, 20% { opacity: 0; }
+  25%, 45% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes hero-cycle-c {
+  0%, 45% { opacity: 0; }
+  50%, 70% { opacity: 1; }
+  75%, 100% { opacity: 0; }
+}
+
+@keyframes hero-cycle-d {
+  0%, 70% { opacity: 0; }
+  75%, 95% { opacity: 1; }
+  97%, 100% { opacity: 0; }
 }
 
 .hero-overlay {
@@ -2444,8 +2470,12 @@ a.social-icon:hover {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .hero-photo-a,
-  .hero-photo-b { animation: none; }
-  .hero-photo-b { opacity: 0; }
+  .hero-photo-b,
+  .hero-photo-c,
+  .hero-photo-d { animation: none; }
+  .hero-photo-b,
+  .hero-photo-c,
+  .hero-photo-d { opacity: 0; }
   .btn,
   .gallery-tile img { transition: none; }
   .btn:hover { transform: none; }
