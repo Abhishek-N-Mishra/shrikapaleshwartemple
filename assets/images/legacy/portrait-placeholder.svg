@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 250" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="lg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fffaf3"/>
+      <stop offset="1" stop-color="#f3e8d4"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="250" rx="10" fill="url(#lg)"/>
+  <rect x="8" y="8" width="184" height="234" rx="6" fill="none" stroke="#c89b3c" stroke-width="1.5" opacity="0.55"/>
+  <rect x="14" y="14" width="172" height="222" rx="4" fill="none" stroke="#741c18" stroke-width="0.75" opacity="0.2"/>
+  <text x="100" y="138" text-anchor="middle" font-family="'Noto Serif Devanagari', serif" font-size="52" fill="#741c18" opacity="0.22">P</text>
+</svg>
