@@ -142,7 +142,8 @@ export class HeaderComponent {
         label: t.navAbout,
         children: [
           { path: '/about', label: t.navTemple },
-          { path: '/history', label: t.navHistory }
+          { path: '/history', label: t.navHistory },
+          { path: '/temple-legacy', label: t.navTempleLegacy }
         ]
       },
       { path: '/darshan', label: t.navDarshan },

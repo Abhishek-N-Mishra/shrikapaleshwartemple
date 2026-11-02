@@ -5,8 +5,8 @@ export const contactDetails = {
   name: 'Mr Ankit Mishra',
   phone: '+91 7007579495',
   phoneHref: 'tel:+917007579495',
-  email: 'contactkapaleshwarcommittee@gmail.com',
-  emailHref: 'mailto:contactkapaleshwarcommittee@gmail.com',
+  email: 'skapaleshwarmahadev@gmail.com',
+  emailHref: 'mailto:skapaleshwarmahadev@gmail.com',
   mapUrl: templeInfo.mapUrl,
   mapEmbedUrl: templeInfo.mapEmbedUrl
 };

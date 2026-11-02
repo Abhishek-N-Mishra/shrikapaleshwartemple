@@ -1,9 +1,8 @@
 import type { LocalizedText } from './temple-data';
 import type { Lang } from './translations';
 
-// Store album files in src/assets/gallery/<album-id>/
-// Copying a file into the folder is not enough — also add it to that album's `items` list below.
-// Example src: 'assets/gallery/temple-premises/photo-2.jpg'
+// Store album files in src/assets/gallery/<album-id>/ as 1.ext, 2.ext, …
+// After adding files, append the filename to that album's list in `galleryAlbums` below.
 
 export type GalleryMediaKind = 'image' | 'video';
 
@@ -75,6 +74,26 @@ export function albumMediaLabel(album: GalleryAlbum, copy: GalleryPageCopy): str
   return hasVideo ? copy.videos : copy.photos;
 }
 
+/** Build gallery items from numbered files (1.ext, 2.ext, …) in listed order. */
+function albumItemsFromFiles(
+  albumId: string,
+  files: string[],
+  altBase: LocalizedText
+): GalleryMedia[] {
+  return files.map((file) => {
+    const stem = file.replace(/\.[^.]+$/, '');
+    const ext = file.split('.').pop()?.toLowerCase() ?? '';
+    const kind: GalleryMediaKind = ext === 'mp4' ? 'video' : 'image';
+    const label = { hi: `${altBase.hi} — ${stem}`, en: `${altBase.en} — ${stem}` };
+    return {
+      id: `${albumId}-${stem}`,
+      kind,
+      src: `assets/gallery/${albumId}/${file}`,
+      alt: label
+    };
+  });
+}
+
 export const galleryAlbums: GalleryAlbum[] = [
   {
     id: 'temple-premises',
@@ -84,54 +103,11 @@ export const galleryAlbums: GalleryAlbum[] = [
       hi: 'पवित्र कपालेश्वर महादेव मंदिर और उसके सुंदर परिवेश की एक झलक।',
       en: 'A glimpse of the sacred Kapaleshwar Mahadev Temple and its beautiful surroundings.'
     },
-    cover: 'assets/gallery/temple-premises/cover.png',
-    items: [
-      {
-        id: 'temple-premises-cover',
-        kind: 'image',
-        src: 'assets/gallery/temple-premises/cover.png',
-        alt: {
-          hi: 'कपालेश्वर महादेव मंदिर का शिखर और हरित परिवेश',
-          en: 'Aerial view of Kapaleshwar Mahadev Temple and its surroundings'
-        }
-      },
-      {
-        id: 'temple-premises-1',
-        kind: 'image',
-        src: 'assets/gallery/temple-premises/1.jpg',
-        alt: {
-          hi: 'मंदिर के गर्भगृह में समाधि शिला, शिवलिंग और नंदी',
-          en: 'Inner sanctum with the sacred stone, Shivling, and Nandi'
-        }
-      },
-      {
-        id: 'temple-premises-2',
-        kind: 'image',
-        src: 'assets/gallery/temple-premises/2.jpg',
-        alt: {
-          hi: 'पुष्पों और मालाओं से सजा शिवलिंग और पूजा-अर्चना',
-          en: 'Flower-adorned Shivling during worship'
-        }
-      },
-      {
-        id: 'temple-premises-3',
-        kind: 'image',
-        src: 'assets/gallery/temple-premises/3.jpg',
-        alt: {
-          hi: 'पुष्पों से सुशोभित श्री कपालेश्वर महादेव शिवलिंग',
-          en: 'Kapaleshwar Mahadev Shivling adorned with flowers'
-        }
-      },
-      {
-        id: 'temple-premises-4',
-        kind: 'video',
-        src: 'assets/gallery/temple-premises/4.mp4',
-        alt: {
-          hi: 'कपालेश्वर महादेव मंदिर परिसर का वीडियो',
-          en: 'Video from the Kapaleshwar Mahadev Temple premises'
-        }
-      }
-    ]
+    cover: 'assets/gallery/temple-premises/1.jpg',
+    items: albumItemsFromFiles('temple-premises', ['1.jpg', '2.jpg', '3.jpg', '4.mp4'], {
+      hi: 'मंदिर परिसर',
+      en: 'Temple premises'
+    })
   },
   {
     id: 'shiva-worship',
@@ -141,27 +117,12 @@ export const galleryAlbums: GalleryAlbum[] = [
       hi: 'भगवान शिव की पूजा-अर्चना और श्रद्धा से अर्पित किए गए पुष्प एवं पूजन सामग्री की झलक।',
       en: 'Moments of devotion, puja and offerings at the feet of Lord Shiva.'
     },
-    cover: 'assets/gallery/shiva-worship/1.jpg',
-    items: [
-      {
-        id: 'shiva-worship-1',
-        kind: 'image',
-        src: 'assets/gallery/shiva-worship/1.jpg',
-        alt: {
-          hi: 'बेलपत्र, पुष्प और दीप से सुशोभित शिवलिंग',
-          en: 'Shivling adorned with bel leaves, flowers, and a lamp'
-        }
-      },
-      {
-        id: 'shiva-worship-2',
-        kind: 'image',
-        src: 'assets/gallery/shiva-worship/2.jpg',
-        alt: {
-          hi: 'मंदिर में शिवलिंग के समक्ष पूजा करते श्रद्धालु',
-          en: 'Devotees offering worship at the shrine'
-        }
-      }
-    ]
+    cover: 'assets/gallery/shiva-worship/1.jpeg',
+    items: albumItemsFromFiles(
+      'shiva-worship',
+      ['1.jpeg', '2.jpeg', '3.jpeg', '4.jpeg', '5.mp4', '6.mp4'],
+      { hi: 'शिव पूजा', en: 'Shiva worship' }
+    )
   },
   {
     id: 'shravan',
@@ -171,27 +132,12 @@ export const galleryAlbums: GalleryAlbum[] = [
       hi: 'पवित्र श्रावण मास में कपालेश्वर महादेव के दर्शन और पूजन के लिए एकत्रित होते श्रद्धालु।',
       en: 'Devotees gather at the temple during the holy month of Shravan.'
     },
-    cover: 'assets/gallery/shravan/1.jpg',
-    items: [
-      {
-        id: 'shravan-1',
-        kind: 'image',
-        src: 'assets/gallery/shravan/1.jpg',
-        alt: {
-          hi: 'श्रावण पूजा में बेलपत्र और दीप से सजा शिवलिंग',
-          en: 'Shivling with bel leaves and a lamp during Shravan worship'
-        }
-      },
-      {
-        id: 'shravan-2',
-        kind: 'image',
-        src: 'assets/gallery/shravan/2.jpg',
-        alt: {
-          hi: 'श्रावण मास में मंदिर में पूजन करते श्रद्धालु',
-          en: 'Devotees gathered for worship during Shravan'
-        }
-      }
-    ]
+    cover: 'assets/gallery/shravan/1.jpeg',
+    items: albumItemsFromFiles(
+      'shravan',
+      ['1.jpeg', '2.jpeg', '3.jpeg', '4.mp4', '5.mp4', '6.mp4'],
+      { hi: 'श्रावण उत्सव', en: 'Shravan celebrations' }
+    )
   },
   {
     id: 'mahashivratri',
@@ -201,27 +147,11 @@ export const galleryAlbums: GalleryAlbum[] = [
       hi: 'महाशिवरात्रि के पावन अवसर पर मंदिर में होने वाले धार्मिक आयोजनों और भक्तिमय वातावरण की झलक।',
       en: 'Glimpses of the temple during the sacred festival of Maha Shivaratri.'
     },
-    cover: 'assets/gallery/mahashivratri/1.jpg',
-    items: [
-      {
-        id: 'mahashivratri-1',
-        kind: 'image',
-        src: 'assets/gallery/mahashivratri/1.jpg',
-        alt: {
-          hi: 'महाशिवरात्रि पर दीप और पुष्प से सुशोभित शिवलिंग',
-          en: 'Shivling with lamp and flowers on Maha Shivaratri'
-        }
-      },
-      {
-        id: 'mahashivratri-2',
-        kind: 'image',
-        src: 'assets/gallery/mahashivratri/2.jpg',
-        alt: {
-          hi: 'महाशिवरात्रि पर मंदिर में एकत्रित श्रद्धालु',
-          en: 'Devotees gathered at the temple on Maha Shivaratri'
-        }
-      }
-    ]
+    cover: 'assets/gallery/mahashivratri/1.jpeg',
+    items: albumItemsFromFiles('mahashivratri', ['1.jpeg', '2.jpeg', '3.jpeg', '4.mp4'], {
+      hi: 'महाशिवरात्रि',
+      en: 'Maha Shivaratri'
+    })
   },
   {
     id: 'surroundings',
@@ -232,26 +162,10 @@ export const galleryAlbums: GalleryAlbum[] = [
       en: 'The serene natural surroundings of the temple, nestled near the Sengur River.'
     },
     cover: 'assets/gallery/surroundings/1.jpg',
-    items: [
-      {
-        id: 'surroundings-1',
-        kind: 'image',
-        src: 'assets/gallery/surroundings/1.jpg',
-        alt: {
-          hi: 'वृक्षों और मार्ग के बीच मंदिर का श्वेत शिखर',
-          en: 'White temple shikhara seen from the approach path'
-        }
-      },
-      {
-        id: 'surroundings-2',
-        kind: 'image',
-        src: 'assets/gallery/surroundings/2.jpg',
-        alt: {
-          hi: 'मंदिर का शिखर और आसपास का मेला तथा हरित परिवेश',
-          en: 'Aerial view of the temple, fair, and green surroundings'
-        }
-      }
-    ]
+    items: albumItemsFromFiles('surroundings', ['1.jpg', '2.jpg'], {
+      hi: 'मंदिर का प्राकृतिक परिवेश',
+      en: 'Temple surroundings'
+    })
   },
   {
     id: 'evening-aarti',
@@ -261,27 +175,11 @@ export const galleryAlbums: GalleryAlbum[] = [
       hi: 'संध्या आरती के समय मंदिर में व्याप्त भक्तिमय और आध्यात्मिक वातावरण की झलक।',
       en: 'A peaceful glimpse of the evening worship and devotional atmosphere at the temple.'
     },
-    cover: 'assets/gallery/evening-aarti/1.jpg',
-    items: [
-      {
-        id: 'evening-aarti-1',
-        kind: 'image',
-        src: 'assets/gallery/evening-aarti/1.jpg',
-        alt: {
-          hi: 'दीप के प्रकाश में पुष्प और बेलपत्र से सजा शिवलिंग',
-          en: 'Shivling with flowers, bel leaves, and lamp light'
-        }
-      },
-      {
-        id: 'evening-aarti-2',
-        kind: 'image',
-        src: 'assets/gallery/evening-aarti/2.jpg',
-        alt: {
-          hi: 'संध्या आरती के समय मंदिर में श्रद्धालु',
-          en: 'Devotees in the temple during evening aarti'
-        }
-      }
-    ]
+    cover: 'assets/gallery/evening-aarti/1.jpeg',
+    items: albumItemsFromFiles('evening-aarti', ['1.jpeg', '2.jpeg', '3.jpeg', '4.mp4'], {
+      hi: 'संध्या आरती',
+      en: 'Evening aarti'
+    })
   }
 ];
 

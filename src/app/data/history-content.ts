@@ -97,8 +97,8 @@ export const historyCopy: Record<Lang, HistoryCopy> = {
     mantra: 'ॐ नमः शिवाय',
     harHar: 'हर हर महादेव।',
     readMoreTitle: 'आगे पढ़ें',
-    readMoreLead: 'मंदिर के धार्मिक महत्व, प्राकृतिक परिवेश, पर्वों और वर्तमान स्वरूप के बारे में जानें।',
-    readMoreButton: 'मंदिर के बारे में →'
+    readMoreLead: 'मंदिर से जुड़े सर्वराकारों की परंपरा और संरक्षण के बारे में जानें।',
+    readMoreButton: 'मंदिर की विरासत →'
   },
   en: {
     eyebrow: 'Tradition • Resolve',
@@ -175,7 +175,7 @@ export const historyCopy: Record<Lang, HistoryCopy> = {
     mantra: 'ॐ नमः शिवाय',
     harHar: 'Har Har Mahadev.',
     readMoreTitle: 'Read further',
-    readMoreLead: 'Learn about the temple’s religious significance, natural setting, festivals, and present form.',
-    readMoreButton: 'About the Temple →'
+    readMoreLead: 'Learn about the lineage of Sarvarakars associated with the temple and its continuing tradition.',
+    readMoreButton: 'Temple Legacy →'
   }
 };

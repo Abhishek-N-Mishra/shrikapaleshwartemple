@@ -16,6 +16,8 @@ export interface AppCopy {
   navAbout: string;
   navTemple: string;
   navHistory: string;
+  navTempleLegacy: string;
+  navNearbyPlaces: string;
   navDarshan: string;
   navFestivals: string;
   navGallery: string;
@@ -123,6 +125,8 @@ export const copies: Record<Lang, AppCopy> = {
     navAbout: 'के बारे में',
     navTemple: 'मंदिर',
     navHistory: 'इतिहास',
+    navTempleLegacy: 'मंदिर की विरासत',
+    navNearbyPlaces: 'आस-पास के स्थल',
     navDarshan: 'दर्शन एवं पूजा',
     navFestivals: 'पर्व एवं आयोजन',
     navGallery: 'गैलरी',
@@ -232,6 +236,8 @@ export const copies: Record<Lang, AppCopy> = {
     navAbout: 'About',
     navTemple: 'Temple',
     navHistory: 'History',
+    navTempleLegacy: 'Temple Legacy',
+    navNearbyPlaces: 'Nearby Places',
     navDarshan: 'Darshan',
     navFestivals: 'Festivals',
     navGallery: 'Gallery',
@@ -333,6 +339,8 @@ export const pageTitles: Record<Lang, Record<string, string>> = {
     home: 'श्री कपालेश्वर महादेव मंदिर | डेरापुर',
     about: 'मंदिर के बारे में | कपालेश्वर महादेव',
     history: 'मंदिर का इतिहास | कपालेश्वर महादेव',
+    'temple-legacy': 'मंदिर की विरासत | कपालेश्वर महादेव',
+    'nearby-places': 'आस-पास के स्थल | कपालेश्वर महादेव',
     darshan: 'दर्शन | कपालेश्वर महादेव',
     festivals: 'पर्व एवं उत्सव | श्री कपालेश्वर महादेव मंदिर, डेरापुर',
     gallery: 'गैलरी | कपालेश्वर महादेव',
@@ -343,6 +351,8 @@ export const pageTitles: Record<Lang, Record<string, string>> = {
     home: 'Kapaleshwar Mahadev Temple | Derapur',
     about: 'About the Temple | Kapaleshwar Mahadev',
     history: 'Temple History | Kapaleshwar Mahadev',
+    'temple-legacy': 'Temple Legacy | Kapaleshwar Mahadev',
+    'nearby-places': 'Nearby Places | Kapaleshwar Mahadev',
     darshan: 'Darshan | Kapaleshwar Mahadev',
     festivals: 'Festivals | Shri Kapaleshwar Mahadev Temple, Derapur',
     gallery: 'Gallery | Kapaleshwar Mahadev',

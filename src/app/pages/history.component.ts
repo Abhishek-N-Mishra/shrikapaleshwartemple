@@ -34,7 +34,7 @@ import { LanguageService } from '../services/language.service';
         <aside class="about-readmore">
           <h2>{{ copy.readMoreTitle }}</h2>
           <p>{{ copy.readMoreLead }}</p>
-          <a routerLink="/about" class="text-link">{{ copy.readMoreButton }}</a>
+          <a routerLink="/temple-legacy" class="text-link">{{ copy.readMoreButton }}</a>
         </aside>
         <app-page-closing />
       </div>

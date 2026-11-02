@@ -37,7 +37,7 @@ export interface SocialLink {
 // Fill `url` when the official page or number is ready. Empty urls still show the icon.
 export const socialLinks: SocialLink[] = [
   { id: 'facebook', url: 'https://www.facebook.com/profile.php?id=100070980551770', label: { hi: 'फेसबुक', en: 'Facebook' } },
-  { id: 'instagram', url: '', label: { hi: 'इंस्टाग्राम', en: 'Instagram' } },
+  { id: 'instagram', url: 'https://www.instagram.com/shreekapaleshwarmandir/', label: { hi: 'इंस्टाग्राम', en: 'Instagram' } },
   { id: 'youtube', url: 'https://www.youtube.com/@ShreeKapaleshwarmahadev', label: { hi: 'यूट्यूब', en: 'YouTube' } },
   { id: 'whatsapp', url: 'https://chat.whatsapp.com/Bh3HPhDprUj2xgG6uwambO', label: { hi: 'व्हाट्सएप', en: 'WhatsApp' } }
 ];
