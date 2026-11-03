@@ -6,6 +6,8 @@ export const LEGACY_PORTRAIT_PLACEHOLDER = 'assets/images/legacy/portrait-placeh
 export interface LegacyPerson {
   name: string;
   designation: string;
+  /** e.g. `011894 - 121900`; omit to show the page placeholder until verified */
+  servicePeriod?: string;
   note?: string;
   image: string;
   imageAlt: string;
@@ -20,6 +22,7 @@ export interface LegacyCopy {
   intro: string[];
   lineageHeading: string;
   people: LegacyPerson[];
+  servicePeriodPlaceholder: string;
   closingTitle: string;
   closing: string[];
   readMoreTitle: string;
@@ -41,6 +44,7 @@ export const legacyCopy: Record<Lang, LegacyCopy> = {
       'The following lineage presents the five Sarvarakars associated with the temple\'s history and continuing tradition.'
     ],
     lineageHeading: 'Lineage of Sarvarakars',
+    servicePeriodPlaceholder: 'MMYYYY - MMYYYY',
     people: [
       {
         name: 'Pandit Kanoji Lal Mishra',
@@ -97,6 +101,7 @@ export const legacyCopy: Record<Lang, LegacyCopy> = {
       'नीचे मंदिर से संबंधित पाँच सर्वराकारों का क्रम प्रस्तुत किया गया है।'
     ],
     lineageHeading: 'सर्वराकारों की परंपरा',
+    servicePeriodPlaceholder: 'MMYYYY - MMYYYY',
     people: [
       {
         name: 'पंडित कानोजी लाल मिश्रा',

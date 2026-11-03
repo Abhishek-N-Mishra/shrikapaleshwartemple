@@ -1,5 +1,13 @@
 import type { Lang } from './translations';
 
+/** Festival card photos — same sources as the home page festival section */
+const festivalCardImages = {
+  mahashivratri: 'assets/gallery/mahashivratri/1.jpeg',
+  shravan: 'assets/gallery/shravan/1.jpeg',
+  shravanMondays: 'assets/gallery/shravan/2.jpeg',
+  religiousFairs: 'assets/images/festivals/religious-fairs.jpg'
+} as const;
+
 export interface FestivalPageCard {
   id: string;
   title: string;
@@ -39,7 +47,7 @@ export const festivalsPageCopy: Record<Lang, FestivalsPageCopy> = {
         category: 'पर्व',
         description:
           'महाशिवरात्रि भगवान शिव की आराधना का प्रमुख पर्व है। इस पावन अवसर पर श्रद्धालु श्री कपालेश्वर महादेव मंदिर में दर्शन, पूजा एवं अभिषेक के लिए आते हैं और भगवान शिव का आशीर्वाद प्राप्त करते हैं। इस अवसर पर मंदिर में विशेष भक्तिमय वातावरण रहता है।',
-        image: 'assets/images/festival-mahashivratri.svg',
+        image: festivalCardImages.mahashivratri,
         symbol: '🔱'
       },
       {
@@ -48,7 +56,7 @@ export const festivalsPageCopy: Record<Lang, FestivalsPageCopy> = {
         category: 'पवित्र मास',
         description:
           'श्रावण, जिसे सावन भी कहा जाता है, भगवान शिव की आराधना के लिए विशेष महत्व रखता है। इस पवित्र महीने में श्रद्धालु श्री कपालेश्वर महादेव के दर्शन एवं पूजा-अर्चना के लिए मंदिर में आते हैं और भगवान शिव का आशीर्वाद प्राप्त करते हैं।',
-        image: 'assets/images/festival-sawan.svg',
+        image: festivalCardImages.shravan,
         symbol: 'ॐ'
       },
       {
@@ -57,7 +65,7 @@ export const festivalsPageCopy: Record<Lang, FestivalsPageCopy> = {
         category: 'विशेष अवसर',
         description:
           'पवित्र श्रावण मास में सोमवार का विशेष धार्मिक महत्व माना जाता है। श्रावण के सोमवार को मंदिर में बड़ी संख्या में श्रद्धालु आते हैं और मेले का आयोजन होता है।',
-        image: 'assets/images/aarti.svg',
+        image: festivalCardImages.shravanMondays,
         symbol: '◷'
       },
       {
@@ -66,7 +74,7 @@ export const festivalsPageCopy: Record<Lang, FestivalsPageCopy> = {
         category: 'मंदिर उत्सव',
         description:
           'महाशिवरात्रि एवं श्रावण के सोमवार जैसे प्रमुख धार्मिक अवसरों पर मंदिर परिसर में मेले का आयोजन होता है। इन अवसरों पर आसपास के क्षेत्रों से श्रद्धालु एवं आगंतुक बड़ी संख्या में मंदिर पहुंचते हैं और भक्तिमय वातावरण का अनुभव करते हैं।',
-        image: 'assets/images/temple.svg',
+        image: festivalCardImages.religiousFairs,
         symbol: '🔱'
       }
     ],
@@ -93,7 +101,7 @@ export const festivalsPageCopy: Record<Lang, FestivalsPageCopy> = {
         category: 'Festival',
         description:
           'Maha Shivaratri is one of the most important occasions for devotees of Lord Shiva. Devotees visit Shri Kapaleshwar Mahadev Temple to offer prayers, perform worship and abhishek, and seek the blessings of Lord Shiva. A special devotional atmosphere can be experienced at the temple during this sacred occasion.',
-        image: 'assets/images/festival-mahashivratri.svg',
+        image: festivalCardImages.mahashivratri,
         symbol: '🔱'
       },
       {
@@ -102,7 +110,7 @@ export const festivalsPageCopy: Record<Lang, FestivalsPageCopy> = {
         category: 'Sacred Month',
         description:
           'Shravan, also known as Sawan, is considered an important month for the worship of Lord Shiva. Devotees visit the temple during this sacred month to offer prayers and seek the blessings of Shri Kapaleshwar Mahadev.',
-        image: 'assets/images/festival-sawan.svg',
+        image: festivalCardImages.shravan,
         symbol: 'ॐ'
       },
       {
@@ -111,7 +119,7 @@ export const festivalsPageCopy: Record<Lang, FestivalsPageCopy> = {
         category: 'Special Occasions',
         description:
           'Mondays during the holy month of Shravan hold special significance for devotees of Lord Shiva. The temple attracts devotees in large numbers, and fairs are held on Shravan Mondays.',
-        image: 'assets/images/aarti.svg',
+        image: festivalCardImages.shravanMondays,
         symbol: '◷'
       },
       {
@@ -120,7 +128,7 @@ export const festivalsPageCopy: Record<Lang, FestivalsPageCopy> = {
         category: 'Temple Celebrations',
         description:
           'Religious fairs are held at the temple during important occasions, including Maha Shivaratri and Shravan Mondays. These occasions bring together devotees and visitors from nearby areas in an atmosphere of faith and devotion.',
-        image: 'assets/images/temple.svg',
+        image: festivalCardImages.religiousFairs,
         symbol: '🔱'
       }
     ],

@@ -38,7 +38,12 @@ import { LanguageService } from '../services/language.service';
                 </div>
                 <div class="legacy-copy">
                   <p class="legacy-index" aria-hidden="true">{{ i + 1 }}</p>
-                  <p class="legacy-designation">{{ person.designation }}</p>
+                  <p class="legacy-designation">
+                    {{ person.designation }}
+                    <span class="legacy-service-period">
+                      ({{ person.servicePeriod ?? copy.servicePeriodPlaceholder }})
+                    </span>
+                  </p>
                   <h3 class="legacy-name">{{ person.name }}</h3>
                   @if (person.note) {
                     <p class="legacy-note">{{ person.note }}</p>

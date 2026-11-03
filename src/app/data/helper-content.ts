@@ -3,6 +3,7 @@ import type { Lang } from './translations';
 import { contactDetails } from './contact-content';
 import { darshanCopy } from './darshan-content';
 import { donationUpi } from './donation-content';
+import { socialLinks, templeInfo } from './temple-data';
 
 export interface HelperTopic {
   id: string;
@@ -31,7 +32,7 @@ export const helperCopy: Record<Lang, HelperCopy> = {
     hint: 'नंदी से पूछें',
     greeting: [
       'नमस्कार। श्री कपालेश्वर महादेव मंदिर में आपका स्वागत है।',
-      'दर्शन, मार्ग, दान या पर्व की जानकारी के लिए नीचे से एक प्रश्न चुनें।'
+      'दर्शन, मार्ग, दान, पर्व, गैलरी, मंदिर की विरासत या संपर्क — नीचे से एक प्रश्न चुनें।'
     ],
     prompt: 'एक प्रश्न चुनें',
     aria: 'मंदिर सहायता',
@@ -44,7 +45,7 @@ export const helperCopy: Record<Lang, HelperCopy> = {
     hint: 'Ask Nandi',
     greeting: [
       'Namaste. Welcome to Shri Kapaleshwar Mahadev Temple.',
-      'Choose a question below for darshan, directions, donation, or festivals.'
+      'Choose a question below for darshan, directions, donation, festivals, gallery, temple legacy, or contact.'
     ],
     prompt: 'Choose a question',
     aria: 'Temple help',
@@ -55,6 +56,13 @@ export const helperCopy: Record<Lang, HelperCopy> = {
 
 const dHi = darshanCopy.hi;
 const dEn = darshanCopy.en;
+
+const socialUrls = {
+  instagram: socialLinks.find((s) => s.id === 'instagram')?.url ?? '',
+  youtube: templeInfo.officialYoutubeUrl,
+  facebook: socialLinks.find((s) => s.id === 'facebook')?.url ?? '',
+  whatsapp: socialLinks.find((s) => s.id === 'whatsapp')?.url ?? ''
+};
 
 export const helperTopics: HelperTopic[] = [
   {
@@ -100,6 +108,25 @@ export const helperTopics: HelperTopic[] = [
     linkLabel: { hi: 'पूरा इतिहास पढ़ें →', en: 'Read the full history →' }
   },
   {
+    id: 'legacy',
+    question: {
+      hi: 'मंदिर की विरासत और सर्वराकार कौन हैं?',
+      en: 'What is the temple legacy and Sarvarakar lineage?'
+    },
+    answer: [
+      {
+        hi: 'श्री कपालेश्वर महादेव मंदिर की परंपरा पीढ़ियों की आस्था और मंदिर के संरक्षण से जुड़ी है। मंदिर की विरासत पृष्ठ पर पाँच सर्वराकारों का क्रम प्रस्तुत है — पंडित कानोजी लाल मिश्रा से वर्तमान सर्वराकार श्री त्रिभुवन नारायण मिश्रा तक।',
+        en: 'The tradition of Shri Kapaleshwar Mahadev Temple is tied to generations of devotion and care of the temple. The Temple Legacy page presents the lineage of five Sarvarakars, from Pandit Kanoji Lal Mishra to the present Sarvarakar, Shri Tribhuvan Narayan Mishra.'
+      },
+      {
+        hi: '1894 में मंदिर निर्माण की शुरुआत और उसके पूर्ण होने से जुड़ा संक्षिप्त विवरण इतिहास पृष्ठ पर भी उपलब्ध है।',
+        en: 'A brief account of the temple construction beginning in 1894 and its completion is also on the History page.'
+      }
+    ],
+    link: '/temple-legacy',
+    linkLabel: { hi: 'मंदिर की विरासत देखें →', en: 'View Temple Legacy →' }
+  },
+  {
     id: 'reach',
     question: {
       hi: 'मंदिर तक कैसे पहुँचें?',
@@ -131,8 +158,8 @@ export const helperTopics: HelperTopic[] = [
         en: `Contact: ${contactDetails.name}. Phone: ${contactDetails.phone}. Email: ${contactDetails.email}.`
       },
       {
-        hi: 'संपर्क का समय: प्रातः 9:00 बजे से सायं 6:00 बजे तक। दर्शन, पूजा, विशेष आयोजन या अन्य जानकारी के लिए कृपया इसी नंबर पर संपर्क करें।',
-        en: 'Contact hours: 9:00 a.m. to 6:00 p.m. For darshan, puja, special gatherings, or other information, please call this number.'
+        hi: 'संपर्क का समय: प्रातः 9:00 बजे से सायं 6:00 बजे तक। दर्शन, पूजा, विशेष आयोजन या अन्य जानकारी के लिए फोन करें या ईमेल लिखें।',
+        en: 'Contact hours: 9:00 a.m. to 6:00 p.m. For darshan, puja, special gatherings, or other information, please call or email.'
       }
     ],
     link: '/contact',
@@ -218,5 +245,51 @@ export const helperTopics: HelperTopic[] = [
     ],
     link: '/festivals',
     linkLabel: { hi: 'पर्व पृष्ठ देखें →', en: 'View the festivals page →' }
+  },
+  {
+    id: 'gallery',
+    question: {
+      hi: 'मंदिर की तस्वीरें और वीडियो कहाँ देखें?',
+      en: 'Where can I see temple photos and videos?'
+    },
+    answer: [
+      {
+        hi: 'गैलरी पृष्ठ पर मंदिर परिसर, शिव पूजा, श्रावण, महाशिवरात्रि, प्राकृतिक परिवेश और संध्या आरती से जुड़ी तस्वीरें और वीडियो देख सकते हैं।',
+        en: 'The Gallery page has photos and videos from the temple premises, Shiva worship, Shravan, Maha Shivaratri, the natural surroundings, and evening aarti.'
+      },
+      {
+        hi: 'प्रत्येक श्रेणी में कई फोटो और वीडियो हैं; एल्बम खोलकर क्रम से देख सकते हैं।',
+        en: 'Each album includes several photos and videos that you can browse in order.'
+      }
+    ],
+    link: '/gallery',
+    linkLabel: { hi: 'गैलरी देखें →', en: 'View the gallery →' }
+  },
+  {
+    id: 'social',
+    question: {
+      hi: 'सोशल मीडिया पर मंदिर से कैसे जुड़ें?',
+      en: 'How do I follow the temple on social media?'
+    },
+    answer: [
+      {
+        hi: 'मंदिर की गतिविधियों, उत्सवों और अपडेट के लिए आधिकारिक सोशल मीडिया चैनलों से जुड़ सकते हैं।',
+        en: 'You can follow the temple’s official social channels for activities, celebrations, and updates.'
+      },
+      {
+        hi: `Instagram: ${socialUrls.instagram}`,
+        en: `Instagram: ${socialUrls.instagram}`
+      },
+      {
+        hi: `YouTube: ${socialUrls.youtube}`,
+        en: `YouTube: ${socialUrls.youtube}`
+      },
+      {
+        hi: `Facebook और WhatsApp समूह के लिंक संपर्क पृष्ठ पर भी उपलब्ध हैं।`,
+        en: `Links for Facebook and the WhatsApp group are also on the contact page.`
+      }
+    ],
+    link: '/contact',
+    linkLabel: { hi: 'संपर्क व सोशल लिंक →', en: 'Contact & social links →' }
   }
 ];

@@ -1,4 +1,4 @@
-import { Component, HostListener, computed, inject, signal } from '@angular/core';
+import { Component, ElementRef, HostListener, computed, effect, inject, signal, viewChild } from '@angular/core';
 import { albumMediaLabel, galleryAlbums, galleryPageCopy, type GalleryAlbum } from '../data/gallery-content';
 import { PageClosingComponent } from '../components/page-closing.component';
 import { PageHeroComponent } from '../components/page-hero.component';
@@ -51,7 +51,16 @@ import { LanguageService } from '../services/language.service';
           <div class="gallery-lightbox-media-wrap">
             @let item = album.items[activeIndex()];
             @if (item.kind === 'video') {
-              <video class="gallery-lightbox-media" [src]="item.src" controls playsinline preload="metadata" [attr.aria-label]="item.alt[locale]"></video>
+              <video
+                #galleryVideo
+                class="gallery-lightbox-media"
+                [src]="item.src"
+                controls
+                playsinline
+                autoplay
+                preload="auto"
+                [attr.aria-label]="item.alt[locale]"
+              ></video>
             } @else {
               <img class="gallery-lightbox-media" [src]="item.src" [alt]="item.alt[locale]">
             }
@@ -75,6 +84,18 @@ export class GalleryComponent {
   readonly albums = galleryAlbums;
   readonly activeAlbum = signal<GalleryAlbum | null>(null);
   readonly activeIndex = signal(0);
+  private readonly galleryVideo = viewChild<ElementRef<HTMLVideoElement>>('galleryVideo');
+
+  constructor() {
+    effect(() => {
+      const album = this.activeAlbum();
+      const index = this.activeIndex();
+      if (!album || album.items[index]?.kind !== 'video') {
+        return;
+      }
+      queueMicrotask(() => this.playActiveVideo());
+    });
+  }
 
   openAlbum(album: GalleryAlbum): void {
     this.activeIndex.set(0);
@@ -91,7 +112,34 @@ export class GalleryComponent {
   }
 
   closeAlbum(): void {
+    this.pauseActiveVideo();
     this.activeAlbum.set(null);
+  }
+
+  private pauseActiveVideo(): void {
+    const video = this.galleryVideo()?.nativeElement;
+    if (video) {
+      video.pause();
+    }
+  }
+
+  private playActiveVideo(): void {
+    const video = this.galleryVideo()?.nativeElement;
+    if (!video) {
+      return;
+    }
+    const tryPlay = (): void => {
+      video.muted = false;
+      void video.play().catch(() => {
+        video.muted = true;
+        void video.play().catch(() => undefined);
+      });
+    };
+    if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+      tryPlay();
+      return;
+    }
+    video.addEventListener('canplay', tryPlay, { once: true });
   }
 
   nextPhoto(): void {

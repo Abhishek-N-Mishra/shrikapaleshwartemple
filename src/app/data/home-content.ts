@@ -58,6 +58,6 @@ export const homeFestivals: Festival[] = [
       hi: 'स्थानीय परंपरा के अनुसार धार्मिक अवसरों पर भक्तिमय आयोजन।',
       en: 'Devotional gatherings on religious occasions in keeping with local tradition.'
     },
-    image: 'assets/gallery/mahashivratri/2.jpeg'
+    image: 'assets/images/festivals/religious-fairs.jpg'
   }
 ];
