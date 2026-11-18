@@ -22,7 +22,7 @@ import { LanguageService } from '../services/language.service';
         <section class="legacy-lineage" aria-labelledby="legacy-lineage-title">
           <h2 id="legacy-lineage-title">{{ copy.lineageHeading }}</h2>
           <ol class="legacy-timeline">
-            @for (person of copy.people; track person.name; let i = $index) {
+            @for (person of copy.people; track i; let i = $index) {
               <li
                 class="legacy-entry"
                 [class.legacy-entry--present]="person.isPresent">
@@ -38,16 +38,12 @@ import { LanguageService } from '../services/language.service';
                 </div>
                 <div class="legacy-copy">
                   <p class="legacy-index" aria-hidden="true">{{ i + 1 }}</p>
-                  <p class="legacy-designation">
-                    {{ person.designation }}
-                    @if (person.servicePeriod) {
-                      <span class="legacy-service-period">({{ person.servicePeriod }})</span>
-                    } @else if (!person.isPresent) {
-                      <span class="legacy-service-period"
-                        >({{ copy.servicePeriodPlaceholder }})</span
-                      >
-                    }
-                  </p>
+                  <p class="legacy-designation">{{ person.designation }}</p>
+                  @if (person.servicePeriod) {
+                    <p class="legacy-service-period">({{ person.servicePeriod }})</p>
+                  } @else if (!person.isPresent) {
+                    <p class="legacy-service-period">({{ copy.servicePeriodPlaceholder }})</p>
+                  }
                   <h3 class="legacy-name">{{ person.name }}</h3>
                   @if (person.note) {
                     <p class="legacy-note">{{ person.note }}</p>

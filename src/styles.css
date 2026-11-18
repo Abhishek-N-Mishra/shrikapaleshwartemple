@@ -1755,7 +1755,7 @@ app-page-closing .page-closing-mantra .about-mantra {
 }
 
 .legacy-designation {
-  margin: 0 0 6px;
+  margin: 0 0 4px;
   font-size: 0.9375rem;
   font-weight: 700;
   color: var(--saffron-dark);
@@ -1763,10 +1763,11 @@ app-page-closing .page-closing-mantra .about-mantra {
 }
 
 .legacy-service-period {
+  margin: 0 0 8px;
+  font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   color: var(--muted);
-  white-space: nowrap;
 }
 
 .legacy-name {

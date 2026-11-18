@@ -120,7 +120,20 @@ export const galleryAlbums: GalleryAlbum[] = [
     cover: 'assets/gallery/shiva-worship/1.jpeg',
     items: albumItemsFromFiles(
       'shiva-worship',
-      ['1.jpeg', '2.jpeg', '3.jpeg', '4.jpeg', '5.mp4', '6.mp4'],
+      [
+        '1.jpeg',
+        '2.jpeg',
+        '3.jpeg',
+        '4.jpeg',
+        '5.jpeg',
+        '6.jpeg',
+        '7.jpeg',
+        '8.jpeg',
+        '9.jpeg',
+        '10.jpeg',
+        '11.mp4',
+        '12.mp4'
+      ],
       { hi: 'शिव पूजा', en: 'Shiva worship' }
     )
   },
@@ -135,7 +148,17 @@ export const galleryAlbums: GalleryAlbum[] = [
     cover: 'assets/gallery/shravan/1.jpeg',
     items: albumItemsFromFiles(
       'shravan',
-      ['1.jpeg', '2.jpeg', '3.jpeg', '4.mp4', '5.mp4', '6.mp4'],
+      [
+        '1.jpeg',
+        '2.jpeg',
+        '3.jpeg',
+        '4.jpeg',
+        '5.jpeg',
+        '6.jpeg',
+        '7.jpeg',
+        '8.mp4',
+        '9.mp4'
+      ],
       { hi: 'श्रावण उत्सव', en: 'Shravan celebrations' }
     )
   },
