@@ -7,6 +7,7 @@ export interface Festival {
   title: LocalizedText;
   description: LocalizedText;
   image: string;
+  symbol: string;
 }
 
 export interface GalleryImage {
@@ -63,7 +64,8 @@ export const festivals: Festival[] = [
       hi: 'विशेष पूजा, अभिषेक और दर्शन के लिए श्रद्धालु इस पावन अवसर पर मंदिर पहुंचते हैं।',
       en: 'Devotees visit the temple on this sacred occasion for special puja, abhishek, and darshan.'
     },
-    image: 'assets/images/festival-mahashivratri.svg'
+    image: 'assets/images/festival-mahashivratri.svg',
+    symbol: '🔱'
   },
   {
     id: 'sawan',
@@ -72,7 +74,8 @@ export const festivals: Festival[] = [
       hi: 'सावन और सावन सोमवार भगवान शिव की आराधना के प्रमुख अवसर हैं।',
       en: 'Sawan and Sawan Mondays are important occasions for the worship of Lord Shiva.'
     },
-    image: 'assets/images/festival-sawan.svg'
+    image: 'assets/images/festival-sawan.svg',
+    symbol: 'ॐ'
   }
 ];
 

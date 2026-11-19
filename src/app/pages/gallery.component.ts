@@ -26,6 +26,7 @@ import { LanguageService } from '../services/language.service';
               <img
                 [src]="album.cover"
                 [alt]="album.items[0].alt[locale]"
+                [style.object-position]="album.coverPosition ?? 'center'"
                 width="380"
                 height="240"
                 loading="lazy">
@@ -46,32 +47,56 @@ import { LanguageService } from '../services/language.service';
         <div class="gallery-lightbox-backdrop" (click)="closeAlbum()" aria-hidden="true"></div>
         <div class="gallery-lightbox-panel">
           <div class="gallery-lightbox-head">
-            <button type="button" class="gallery-lightbox-close" (click)="closeAlbum()">{{ copy.close }}</button>
+            <button
+              type="button"
+              class="gallery-lightbox-close"
+              (click)="closeAlbum()"
+              [attr.aria-label]="copy.close">
+              <span class="gallery-lightbox-close-icon" aria-hidden="true">×</span>
+            </button>
           </div>
-          <div class="gallery-lightbox-media-wrap">
-            @let item = album.items[activeIndex()];
-            @if (item.kind === 'video') {
-              <video
-                #galleryVideo
-                class="gallery-lightbox-media"
-                [src]="item.src"
-                controls
-                playsinline
-                autoplay
-                preload="auto"
-                [attr.aria-label]="item.alt[locale]"
-              ></video>
-            } @else {
-              <img class="gallery-lightbox-media" [src]="item.src" [alt]="item.alt[locale]">
+          @let item = album.items[activeIndex()];
+          <div class="gallery-lightbox-stage">
+            @if (album.items.length > 1) {
+              <button
+                type="button"
+                class="gallery-lightbox-arrow gallery-lightbox-arrow--prev"
+                (click)="prevPhoto()"
+                [attr.aria-label]="copy.previous">
+                <span aria-hidden="true">&lt;</span>
+              </button>
+            }
+            <div class="gallery-lightbox-media-wrap">
+              @if (item.kind === 'video') {
+                <video
+                  #galleryVideo
+                  class="gallery-lightbox-media"
+                  [src]="item.src"
+                  controls
+                  playsinline
+                  autoplay
+                  preload="auto"
+                  [attr.aria-label]="item.alt[locale]"
+                ></video>
+              } @else {
+                <img class="gallery-lightbox-media" [src]="item.src" [alt]="item.alt[locale]">
+              }
+            </div>
+            @if (album.items.length > 1) {
+              <button
+                type="button"
+                class="gallery-lightbox-arrow gallery-lightbox-arrow--next"
+                (click)="nextPhoto()"
+                [attr.aria-label]="copy.next">
+                <span aria-hidden="true">&gt;</span>
+              </button>
             }
           </div>
           <p class="gallery-lightbox-caption">{{ item.alt[locale] }}</p>
           @if (album.items.length > 1) {
-            <div class="gallery-lightbox-nav">
-              <button type="button" (click)="prevPhoto()">{{ copy.previous }}</button>
-              <span>{{ activeIndex() + 1 }} / {{ album.items.length }}</span>
-              <button type="button" (click)="nextPhoto()">{{ copy.next }}</button>
-            </div>
+            <p class="gallery-lightbox-counter" aria-live="polite">
+              {{ activeIndex() + 1 }} / {{ album.items.length }}
+            </p>
           }
         </div>
       </div>

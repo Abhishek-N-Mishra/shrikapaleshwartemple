@@ -1,12 +1,22 @@
 import type { Lang } from './translations';
 
-/** Festival card photos — same sources as the home page festival section */
-const festivalCardImages = {
-  mahashivratri: 'assets/gallery/mahashivratri/1.jpeg',
-  shravan: 'assets/gallery/shravan/1.jpeg',
-  shravanMondays: 'assets/gallery/shravan/2.jpeg',
+/** Festival card photos — shared by Home and Festivals pages */
+export const festivalCardImages = {
+  mahashivratri: 'assets/gallery/mahashivratri/festival-card.jpg',
+  shravan: 'assets/gallery/shravan/festival-card.jpg',
+  shravanMondays: 'assets/gallery/shravan/festival-card-mondays.jpg',
   religiousFairs: 'assets/images/festivals/religious-fairs.jpg'
 } as const;
+
+export const festivalCardSymbols: Record<
+  'mahashivratri' | 'shravan' | 'shravan-mondays' | 'religious-fairs',
+  string
+> = {
+  mahashivratri: '🔱',
+  shravan: 'ॐ',
+  'shravan-mondays': '◷',
+  'religious-fairs': '🔱'
+};
 
 export interface FestivalPageCard {
   id: string;
@@ -100,7 +110,7 @@ export const festivalsPageCopy: Record<Lang, FestivalsPageCopy> = {
         title: 'Maha Shivaratri',
         category: 'Festival',
         description:
-          'Maha Shivaratri is one of the most important occasions for devotees of Lord Shiva. Devotees visit Shri Kapaleshwar Mahadev Temple to offer prayers, perform worship and abhishek, and seek the blessings of Lord Shiva. A special devotional atmosphere can be experienced at the temple during this sacred occasion.',
+          'Maha Shivaratri is a sacred occasion for devotees of Lord Shiva. Devotees visit Shri Kapaleshwar Mahadev Temple to offer prayers, perform puja and abhishek, and seek his blessings. The temple fills with a special atmosphere of devotion during this festival.',
         image: festivalCardImages.mahashivratri,
         symbol: '🔱'
       },
@@ -118,7 +128,7 @@ export const festivalsPageCopy: Record<Lang, FestivalsPageCopy> = {
         title: 'Shravan Mondays',
         category: 'Special Occasions',
         description:
-          'Mondays during the holy month of Shravan hold special significance for devotees of Lord Shiva. The temple attracts devotees in large numbers, and fairs are held on Shravan Mondays.',
+          'Mondays during the holy month of Shravan hold special significance for devotees of Lord Shiva. Large numbers of devotees visit Shri Kapaleshwar Mahadev Temple to offer prayers and seek blessings. Special fairs are also held on Shravan Mondays.',
         image: festivalCardImages.shravanMondays,
         symbol: '◷'
       },

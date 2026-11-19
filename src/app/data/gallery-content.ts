@@ -19,6 +19,8 @@ export interface GalleryAlbum {
   category: LocalizedText;
   description: LocalizedText;
   cover: string;
+  /** `object-position` for the gallery grid cover (portrait photos). */
+  coverPosition?: string;
   items: GalleryMedia[];
 }
 
@@ -117,7 +119,7 @@ export const galleryAlbums: GalleryAlbum[] = [
       hi: 'भगवान शिव की पूजा-अर्चना और श्रद्धा से अर्पित किए गए पुष्प एवं पूजन सामग्री की झलक।',
       en: 'Moments of devotion, puja and offerings at the feet of Lord Shiva.'
     },
-    cover: 'assets/gallery/shiva-worship/1.jpeg',
+    cover: 'assets/gallery/shiva-worship/cover.jpeg',
     items: albumItemsFromFiles(
       'shiva-worship',
       [
@@ -145,7 +147,7 @@ export const galleryAlbums: GalleryAlbum[] = [
       hi: 'पवित्र श्रावण मास में कपालेश्वर महादेव के दर्शन और पूजन के लिए एकत्रित होते श्रद्धालु।',
       en: 'Devotees gather at the temple during the holy month of Shravan.'
     },
-    cover: 'assets/gallery/shravan/1.jpeg',
+    cover: 'assets/gallery/shravan/cover.jpeg',
     items: albumItemsFromFiles(
       'shravan',
       [
@@ -170,7 +172,7 @@ export const galleryAlbums: GalleryAlbum[] = [
       hi: 'महाशिवरात्रि के पावन अवसर पर मंदिर में होने वाले धार्मिक आयोजनों और भक्तिमय वातावरण की झलक।',
       en: 'Glimpses of the temple during the sacred festival of Maha Shivaratri.'
     },
-    cover: 'assets/gallery/mahashivratri/1.jpeg',
+    cover: 'assets/gallery/mahashivratri/cover.jpeg',
     items: albumItemsFromFiles('mahashivratri', ['1.jpeg', '2.jpeg', '3.jpeg', '4.mp4'], {
       hi: 'महाशिवरात्रि',
       en: 'Maha Shivaratri'

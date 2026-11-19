@@ -19,7 +19,7 @@ import { LanguageService } from '../services/language.service';
         <div class="festival-grid festival-grid-page">
           @for (festival of copy.cards; track festival.id) {
             <article class="festival-card">
-              <img [src]="festival.image" [alt]="festival.title" width="560" height="270" loading="lazy">
+              <img [src]="festival.image" [alt]="festival.title" width="560" height="310" loading="lazy">
               <div class="festival-body">
                 <span class="festival-symbol" aria-hidden="true">{{ festival.symbol }}</span>
                 <p class="festival-category">{{ festival.category }}</p>

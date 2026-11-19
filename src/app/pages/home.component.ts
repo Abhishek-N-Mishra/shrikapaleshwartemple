@@ -88,9 +88,9 @@ import { LanguageService } from '../services/language.service';
         <div class="festival-grid home-festival-grid">
           @for (festival of festivals; track festival.id) {
             <article class="festival-card">
-              <img [src]="festival.image" [alt]="festival.title[locale]" width="560" height="270" loading="lazy">
+              <img [src]="festival.image" [alt]="festival.title[locale]" width="560" height="310" loading="lazy">
               <div class="festival-body">
-                <span class="festival-symbol" aria-hidden="true">🔱</span>
+                <span class="festival-symbol" aria-hidden="true">{{ festival.symbol }}</span>
                 <h3>{{ festival.title[locale] }}</h3>
                 <p>{{ festival.description[locale] }}</p>
                 <a routerLink="/festivals" class="text-link">{{ t.festivalsLink }}</a>

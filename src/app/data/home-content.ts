@@ -1,5 +1,6 @@
 import type { Lang } from './translations';
 import type { Festival } from './temple-data';
+import { festivalCardImages, festivalCardSymbols } from './festivals-content';
 
 export interface HomeCopy {
   planVisitTitle: string;
@@ -22,7 +23,7 @@ export const homeCopy: Record<Lang, HomeCopy> = {
   }
 };
 
-/** Home page festival highlights only — not used on the Festivals page. */
+/** Home festival highlights — same photos, titles, and symbols as the Festivals page */
 export const homeFestivals: Festival[] = [
   {
     id: 'mahashivratri',
@@ -31,25 +32,28 @@ export const homeFestivals: Festival[] = [
       hi: 'भगवान शिव के प्रति विशेष श्रद्धा और भक्ति का पावन अवसर।',
       en: 'A sacred occasion of special devotion to Lord Shiva.'
     },
-    image: 'assets/gallery/mahashivratri/1.jpeg'
+    image: festivalCardImages.mahashivratri,
+    symbol: festivalCardSymbols.mahashivratri
   },
   {
     id: 'shravan',
-    title: { hi: 'सावन (श्रावण)', en: 'Shravan (Sawan)' },
+    title: { hi: 'श्रावण (सावन)', en: 'Shravan (Sawan)' },
     description: {
       hi: 'भगवान शिव की आराधना का प्रमुख महीना।',
       en: 'A principal month for the worship of Lord Shiva.'
     },
-    image: 'assets/gallery/shravan/1.jpeg'
+    image: festivalCardImages.shravan,
+    symbol: festivalCardSymbols.shravan
   },
   {
     id: 'shravan-mondays',
-    title: { hi: 'सावन सोमवार', en: 'Shravan Mondays' },
+    title: { hi: 'श्रावण सोमवार', en: 'Shravan Mondays' },
     description: {
       hi: 'सावन के सोमवार भक्ति और दर्शन के लिए विशेष रूप से महत्वपूर्ण।',
       en: 'Mondays during Shravan hold special significance for devotion and darshan.'
     },
-    image: 'assets/gallery/shravan/2.jpeg'
+    image: festivalCardImages.shravanMondays,
+    symbol: festivalCardSymbols['shravan-mondays']
   },
   {
     id: 'religious-fairs',
@@ -58,6 +62,7 @@ export const homeFestivals: Festival[] = [
       hi: 'स्थानीय परंपरा के अनुसार धार्मिक अवसरों पर भक्तिमय आयोजन।',
       en: 'Devotional gatherings on religious occasions in keeping with local tradition.'
     },
-    image: 'assets/images/festivals/religious-fairs.jpg'
+    image: festivalCardImages.religiousFairs,
+    symbol: festivalCardSymbols['religious-fairs']
   }
 ];
