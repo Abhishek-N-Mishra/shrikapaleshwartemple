@@ -13,7 +13,7 @@ import { LanguageService } from '../services/language.service';
     @let copy = page();
     <app-page-hero [eyebrow]="copy.eyebrow" [title]="copy.title" />
     <section class="section content-page legacy-page">
-      <div class="container narrow">
+      <div class="container">
         <h2 class="about-temple-name">{{ copy.introHeading }}</h2>
         @for (p of copy.intro; track p) {
           <p>{{ p }}</p>

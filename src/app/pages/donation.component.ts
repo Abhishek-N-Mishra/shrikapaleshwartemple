@@ -12,7 +12,7 @@ import { LanguageService } from '../services/language.service';
     @let copy = page();
     <app-page-hero [eyebrow]="copy.eyebrow" [title]="copy.title" />
     <section class="section content-page donation-page">
-      <div class="container narrow">
+      <div class="container">
         <h2>{{ copy.heading }}</h2>
         <p>{{ copy.lead }}</p>
 

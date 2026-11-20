@@ -7,17 +7,10 @@ import { Component, Input } from '@angular/core';
     <section class="page-hero page-hero-lg page-hero-photo" [attr.aria-label]="title">
       <img
         class="page-hero-fill"
-        src="assets/images/darshan-hero-marble.png"
-        alt=""
-        aria-hidden="true"
-        width="1920"
-        height="1080">
-      <img
-        class="page-hero-photo-img"
-        src="assets/images/darshan-hero.png"
+        src="assets/images/page-hero.jpg"
         [alt]="title"
-        width="1920"
-        height="1080">
+        width="1024"
+        height="384">
       <div class="page-hero-overlay"></div>
       <div class="container page-hero-copy">
         <span class="eyebrow">{{ eyebrow }}</span>

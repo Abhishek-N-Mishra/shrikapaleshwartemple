@@ -1364,7 +1364,7 @@ html[lang="en"] .nav-parent {
   font-size: 1.125rem;
 }
 
-.page-hero-lg { padding: 108px 0; }
+.page-hero-lg { padding: 168px 0; }
 
 .page-hero-photo {
   position: relative;
@@ -1385,12 +1385,7 @@ html[lang="en"] .nav-parent {
 
 .page-hero-fill {
   object-fit: cover;
-  object-position: center;
-}
-
-.page-hero-photo-img {
-  object-fit: contain;
-  object-position: center;
+  object-position: center center;
 }
 
 .page-hero-overlay {
@@ -1415,6 +1410,10 @@ html[lang="en"] .nav-parent {
 .page-hero-photo .page-hero-rule {
   background: var(--gold-soft);
   margin-top: 14px;
+}
+
+.content-page {
+  text-align: left;
 }
 
 .content-page h2 {
@@ -2014,7 +2013,7 @@ app-page-closing .page-closing-mantra .about-mantra {
 
 .upi-card-details {
   text-align: center;
-  transform: translateX(-104px);
+  transform: translateX(-164px);
 }
 
 .upi-card .upi-label {
@@ -2045,7 +2044,7 @@ app-page-closing .page-closing-mantra .about-mantra {
   width: 200px;
   aspect-ratio: 1;
   border-radius: 10px;
-  transform: translateX(-68px);
+  transform: translateX(-152px);
 }
 
 .upi-qr-frame {
